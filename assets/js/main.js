@@ -6,7 +6,15 @@ function init() {
 	showList();
 	document.addEventListener("deviceready", onDeviceReady, true);
 	
-	var myScroll = new iScroll('wrapper', { hScrollbar: false, vScrollbar: false });
+	var myScroll = new iScroll('wrapper', {
+		hScrollbar: false, 
+		vScrollbar: false, 
+		onScrollMove: function(that, e){
+			var x = that.x;
+			// var left = parseInt($('#list_scroll').css('margin-left').replace('px', ''));
+			$('#list_scroll').css('margin-left', x);
+		}
+	});
 
 	document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 };
