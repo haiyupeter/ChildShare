@@ -81,10 +81,10 @@
 }
 .pub-menus-other{display:block; width:250px; height:70px; float:left;}
 .pub-menus a{float:left;}
-.pub-menus .ico-pub{display:block; margin-top:18px; margin-left:18px; width:38px; height:32px;  background:url(../css/images/ico-pub.png) no-repeat 0 0;}
-.pub-menus .pub-menus-entry.on .ico-pub{display:block; margin-top:18px; margin-left:18px; width:38px; height:32px; background:url(../css/images/ico-pub-gray.png) no-repeat 0 0;}
-.pub-menus .ico-photo{display:block; margin-top:18px; margin-left:34px; width:38px; height:32px; background:url(../css/images/ico-photo.png) no-repeat 0 0;}
-.pub-menus .ico-talk{display:block; margin-top:17px; margin-left:36px; width:38px; height:35px; background:url(../css/images/ico-talk.png) no-repeat 0 0;}
-.pub-menus .ico-mic{display:block; margin-top:17px; margin-left:36px; width:38px; height:35px; background:url(../css/images/ico-mic.png) no-repeat 0 0;}
+.pub-menus .ico-pub{display:block; margin-top:18px; margin-left:18px; width:38px; height:32px;  background:url(./images/ico-pub.png) no-repeat 0 0;}
+.pub-menus .pub-menus-entry.on .ico-pub{display:block; margin-top:18px; margin-left:18px; width:38px; height:32px; background:url(./images/ico-pub-gray.png) no-repeat 0 0;}
+.pub-menus .ico-photo{display:block; margin-top:18px; margin-left:34px; width:38px; height:32px; background:url(./images/ico-photo.png) no-repeat 0 0;}
+.pub-menus .ico-talk{display:block; margin-top:17px; margin-left:36px; width:38px; height:35px; background:url(./images/ico-talk.png) no-repeat 0 0;}
+.pub-menus .ico-mic{display:block; margin-top:17px; margin-left:36px; width:38px; height:35px; background:url(./images/ico-mic.png) no-repeat 0 0;}
 
  
