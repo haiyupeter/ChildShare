@@ -3,16 +3,26 @@
 *create time: 2012-06-09
 **/
 
-.ui-bar-bg {height:45px;background-image: url(./images/header-bg.png);}
+.ui-bar-bg {height:44px;background-image: url(./images/header-bg.png);}
 
-.ui-btn-top-more {height:29px;width:37px;background-image: url(./images/header-btn-more.png);}
+.ui-btn-top-more {height:28px;width:37px;background-image: url(./images/header-btn-more.png);
+   -moz-border-radius: 0.5em;
+   -webkit-border-radius: 0.5em;
+   border-radius: 0.5em;
+}
 
 
-.ui-btn-top-feeds {height:29px;width:37px;background-image: url(./images/header-btn-feeds.png);}
+.ui-btn-top-feeds {height:28px;width:37px;background-image: url(./images/header-btn-feeds.png);
+   -moz-border-radius: 0.5em;
+   -webkit-border-radius: 0.5em;
+   border-radius: 0.5em;
+}
 
 .ui-content-info-bg {height:130px;background-repeat: no-repeat;background-image: url(./images/info-bg.png);}
 
-.ui-btn-info-profile {background-repeat: no-repeat;background-image: url(./images/profile.png);}
+.ui-btn-info-profile {background-repeat: no-repeat;background-image: url(./images/profile.png);
+
+}
 
 .ui-btn-info-publish {background-repeat: no-repeat;background-image: url(./images/publish.png);}
 
@@ -54,9 +64,9 @@
    border-radius: 2em;
 }*/
 .ui-btn-info-publish-cycle {
-   -moz-border-radius: 2em;
-   -webkit-border-radius: 2em;
-   border-radius: 2em;
+   -moz-border-radius: 3em;
+   -webkit-border-radius: 3em;
+   border-radius: 3em;
 }
 
 .pub-menus{  
