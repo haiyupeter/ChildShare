@@ -71,15 +71,15 @@
 
 .pub-menus{  
   position:absolute;
-  right:7%;
-  top:16%;
+  right:36px;
+  top:18%;
   width:70px; 
   height:70px;
   overflow:hidden;    
   background-color:rgba(0,0,0,0.3);
-  text-align:right;
   -webkit-border-radius:35px;
   -webkit-box-shadow: 0 0 5px #fff;
+  -webkit-transform:scale(0.5);
 }
 
 .pub-menus-main{width:320px; height:70px; margin-left:-250px;}
@@ -87,10 +87,9 @@
 .pub-menus-entry.on{
   background-color:rgba(0,0,0,0.3);
   -webkit-border-radius:35px;
-  -webkit-box-shadow: 0 0 5px #fff;
 }
 .pub-menus-other{display:block; width:250px; height:70px; float:left;}
-.pub-menus a{float:left;}
+.pub-menus a{float:right;}
 .pub-menus .ico-pub{display:block; margin-top:18px; margin-left:18px; width:38px; height:32px;  background:url(./images/ico-pub.png) no-repeat 0 0;}
 .pub-menus .pub-menus-entry.on .ico-pub{display:block; margin-top:18px; margin-left:18px; width:38px; height:32px; background:url(./images/ico-pub-gray.png) no-repeat 0 0;}
 .pub-menus .ico-photo{display:block; margin-top:18px; margin-left:34px; width:38px; height:32px; background:url(./images/ico-photo.png) no-repeat 0 0;}
