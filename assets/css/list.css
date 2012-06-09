@@ -24,7 +24,7 @@
 .shareList li {
 	display: inline-block;
 	vertical-align: middle;
-	width: 520px;
+	width: 270px;
 	border: 1px solid #E6E4E1;
 	border-radius: 15px;
 	margin-left: 20px;
@@ -35,9 +35,9 @@
 }
 .shareList li img {
 	border-radius: 5px;
-	width: 500px;
-	height: 360px;
-	margin: 10px;
+	width: 250px;
+	height: 180px;
+	margin: 10px 10px 0px 10px;
 }
 .shareList li .img-info {
 	width: 100%;
@@ -45,8 +45,8 @@
 }
 .shareList .img-info .img-title {
 	display: inline-block;
-	width: 400px;
-	height: 45px;
+	width: 200px;
+	height: 22px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -57,14 +57,14 @@
 }
 .shareList .img-info .img-comment {
 	display: inline-block;
-	height: 46px;
+	height: 23px;
 	vertical-align: middle;
 	background-color: #CBCACB;
 	border-radius: 23px;
 }
 .shareList .img-info .img-comment .comment-btn {
-	width: 34px;
-	height: 34px;
+	width: 17px;
+	height: 17px;
 	margin-left: 5px;
 	display: inline-block;
 	vertical-align: middle;
@@ -73,7 +73,7 @@
 .shareList .img-info .img-comment .comment-num {
 	color: #FFF;
 	display: inline-block;
-	line-height: 46px;
+	line-height: 23px;
 	vertical-align: middle;
 	margin: 0 8px 0 2px;
 }
