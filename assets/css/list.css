@@ -13,6 +13,7 @@
 	bottom: 0;
 	left: 0;
 	width: 100%;
+	height: 250px;
 	overflow: auto;
 }
 .shareList {
@@ -26,7 +27,7 @@
 	vertical-align: middle;
 	width: 270px;
 	border: 1px solid #E6E4E1;
-	border-radius: 15px;
+	border-radius: 10px;
 	margin-left: 10px;
 	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
 }
