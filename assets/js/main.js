@@ -120,12 +120,12 @@ $("#time_line").bind('click', function(e){
 	        var opend = this.getAttribute("data-opened");
 	        
 	        if(opend && "1" == opend){        
-	            animation.transition(".pub-menus", "push-menus", {width:"70px", right:"36px"});
+	            animation.transition(".pub-menus", "push-menus", {width:"70px", right:"10px"});
 	            animation.transition(".pub-menus-main", "push-menus-main", {marginLeft:"-250px"});
 	            this.setAttribute("data-opened", 0);
 	        }else{
 	            E4M.addClass(".pub-menus-entry", "on");
-	            animation.transition(".pub-menus", "push-menus", {width:"320px", right:"-28px"});
+	            animation.transition(".pub-menus", "push-menus", {width:"320px", right:"-52px"});
 	            animation.transition(".pub-menus-main", "push-menus-main", {marginLeft:"0"});
 	            this.setAttribute("data-opened", 1);
 	        }
