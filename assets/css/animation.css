@@ -54,10 +54,10 @@
 }
 
 .push-menus{
-  -webkit-transition:width 0.8s ease;
+  -webkit-transition:width 0.2s ease, right 0.2s ease;
 }
 .push-menus-main{
-  -webkit-transition:margin-left 0.8s ease;
+  -webkit-transition:margin-left 0.2s ease;
 }
 /*-------------- end --------------*/
 .pulldown{height:20px; overflow:hidden; background:red;}
