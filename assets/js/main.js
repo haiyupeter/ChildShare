@@ -9,6 +9,7 @@ function init() {
 	var myScroll = new iScroll('wrapper', {
 		hScrollbar: false, 
 		vScrollbar: false, 
+		snap: true,
 		onScrollMove: function(that, e){
 			var x = that.x;
 			// var left = parseInt($('#list_scroll').css('margin-left').replace('px', ''));
@@ -99,3 +100,40 @@ $("#time_line").bind('click', function(e){
 	$('#time_line .spine_plus').removeClass('spine_current');
 	$( $('#time_line .spine_plus').get(parseInt(left) + 1 )).addClass('spine_current');
 });
+
+
+
+(function(){
+	if(document.querySelector(".pub-menus")){
+	    var animation = E4M.getAnimation("push");
+	    animation.set("stop", function(node, newClassName, styles){
+	        var pub = document.querySelector(".pub-menus");
+	        var opend = pub.getAttribute("data-opened");
+	        
+	        if("1" != opend){
+	            E4M.removeClass(".pub-menus-entry", "on");
+	        }
+	        
+	    });
+	    document.querySelector(".pub-menus").addEventListener("click", function(e){
+	        e.preventDefault();
+	        var opend = this.getAttribute("data-opened");
+	        
+	        if(opend && "1" == opend){        
+	            animation.transition(".pub-menus", "push-menus", {width:"70px", right:"36px"});
+	            animation.transition(".pub-menus-main", "push-menus-main", {marginLeft:"-250px"});
+	            this.setAttribute("data-opened", 0);
+	        }else{
+	            E4M.addClass(".pub-menus-entry", "on");
+	            animation.transition(".pub-menus", "push-menus", {width:"320px", right:"-28px"});
+	            animation.transition(".pub-menus-main", "push-menus-main", {marginLeft:"0"});
+	            this.setAttribute("data-opened", 1);
+	        }
+	    }, false);
+
+	    document.querySelector(".pub-menus-other").addEventListener("click", function(e){
+	        e.preventDefault();
+	        e.stopPropagation();
+	    }, false);  
+	} 
+})();
