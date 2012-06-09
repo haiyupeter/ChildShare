@@ -1,7 +1,8 @@
 // 王磊
 
 function init() {
-	// 默认页面，展现列表
+	// 若用户已登录，默认页面，展现列表
+	// TODO: 后续将其隐藏起来
 	showList();
 	document.addEventListener("deviceready", onDeviceReady, true);
 }
