@@ -112,25 +112,31 @@ Date.prototype.pattern=function(fmt) {
 var item_length = 280;
 
 function initScrollBar() {
-	// set width
-	$('#list_scroll').css('width', 2000);
-	$('#time_line').css('width', 2000);
-	// init the scrollIcon
 	var data = listData;
+	var length = data.length;
+	// set width
+	$('.shareList').css('width', (item_length + 10) * length);
+	$('#list_scroll').css('width', item_length * length);
+	$('#time_line').css('width', item_length * length);
+	// init the scrollIcon
 	var item_list = [];
 	for (var i = 0; i < data.length; i ++) {
-		left = i * item_length;
+		left = i * item_length + 20;
 		//item_list.push('<i id="add_event_plus_' + data[i].id + '" class="spine_plus" style="left:' + left + 'px;"></i>');
-		item_list.push('<i id="add_event_plus" class="spine_plus" style="left:' + left + 'px;"></i>');
+		item_list.push('<i class="spine_plus" style="left:' + left + 'px;"></i>');
 		var upload_time = new Date(data[i].upload_time).pattern("MM月dd日");
 		item_list.push('<div class="spine_date" style="left:' + left + 'px; top:16px;">' + upload_time + '</div>');
 		
 	}
 	$("#time_line").append(item_list.join(''));
 	
+	$("#time_line .spine_plus:first").addClass('spine_current');
+	
 	$('#time_line .spine_plus').live('mouseover', function(e) {
 		$('.spine_plus').removeClass('spine_current');
 		$(this).addClass('spine_current');
+	}).bind('click', function(e){
+		return false;
 	});
 }
 
@@ -145,7 +151,10 @@ $("#time_line").bind('click', function(e){
 	// $('#add_event_plus').css("left", e.offsetX);
 	var offsetX = e.offsetX;
 	var left = offsetX/item_length;
-	alert(left);
+	//alert(left);
+	$('.pub-menus2').show().css('top', 370).css('z-index', 10);
+	/*
 	$('#time_line .spine_plus').removeClass('spine_current');
-	$( $('#time_line .spine_plus').get(parseInt(left) + 1 )).addClass('spine_current');
+	$( $('#time_line .spine_plus').get(parseInt(left))).addClass('spine_current');
+	*/
 });
