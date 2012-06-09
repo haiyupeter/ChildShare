@@ -1,51 +1,75 @@
+.icon {display:block; width:18px; height:18px; line-height:17px; text-align:center;}
+.ico-plus{-webkit-border-radius:9px; background:black; color:white;}
 
-/**
- * base class
- */
-.animation {
+/*-------------- ������ --------------*/
+@-webkit-keyframes breathing-lights {
+  from {
+    -webkit-box-shadow:0 0 5px #ddd;
+  }
+	50% {
+    -webkit-box-shadow: 0 0 10px #398B08;
+  }
+	to {
+    -webkit-box-shadow:0 0 5px #ddd;
+  }
+}
+
+.breathing-lights{
+  -webkit-animation-name: breathing-lights;
+  -webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: infinite;
+}
+/*-------------- end --------------*/
+
+@-webkit-keyframes flipInX {
+    0% {
+        -webkit-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+    
+    40% {
+        -webkit-transform: perspective(400px) rotateX(-10deg);
+    }
+    
+    70% {
+        -webkit-transform: perspective(400px) rotateX(10deg);
+    }
+    
+    100% {
+        -webkit-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+.flipInX {
   -webkit-animation-duration: 1s;
-	-webkit-animation-fill-mode: both;
+	-webkit-backface-visibility: visible !important;
+	-webkit-animation-name: flipInX;
 }
 
-@-webkit-keyframes slide-left-in{  
-    0% {-webkit-transform:translateX(100%);}
-    100%{-webkit-transform:translateX(0);}
+/*-------------- Slide --------------*/
+.slide-ease{
+  -webkit-transition:left 2s ease 0.3s;
+  position:relative;
 }
 
-@-webkit-keyframes slide-left-out{  
-    0% {-webkit-transform:translateX(0);}
-    100%{-webkit-transform:translateX(-100%);}
+.push-menus{
+  -webkit-transition:width 0.8s ease;
+}
+.push-menus-main{
+  -webkit-transition:margin-left 0.8s ease;
+}
+/*-------------- end --------------*/
+.pulldown{height:20px; overflow:hidden; background:red;}
+.pulldown:hover{    
+  -webkit-transition:height 0.5s ease 0.3s;
+  height:50px;
 }
 
-@-webkit-keyframes slide-right-in{  
-    0% {-webkit-transform:translateX(0);}
-    100%{-webkit-transform:translateX(100%);}
-}
-
-@-webkit-keyframes slide-right-out{  
-    0% {-webkit-transform:translateX(0);}
-    100%{-webkit-transform:translateX(-100%);}
-}
-
-.slide-left-in{    
-    -webkit-animation-name:slide-left-in;
-}
-
-.slide-left-out{    
-    -webkit-animation-name:slide-left-out;
-}
-
-.slide-right-in{    
-    -webkit-animation-name:slide-right-in;
-}
-
-.slide-right-out{    
-    -webkit-animation-name:slide-right-out;
-}
-
-
-.ease-in{
-    position:relative;
-    left:200px;
-    -webkit-transition:left 1s ease-in-out}
+.pullup{height:30px; overflow:hidden; background:red;}
+.pullup:hover{
+  -webkit-transition:height 0.5s ease 0.3s, top 0.5s ease 0.3s;
+  height:100px;
+  top:-70px;
+  position:relative;
 }
