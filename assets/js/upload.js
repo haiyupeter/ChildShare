@@ -18,16 +18,19 @@ var PictureUpload = {
         	destinationType=navigator.camera.DestinationType; 
 		},
 		capturePhoto : function() { 
-			navigator.camera.getPicture(PictureUpload.onPhotoURISuccess, PictureUpload.onFail, { quality: 50, destinationType: destinationType.DATA_URL });
+			// navigator.camera.getPicture(PictureUpload.onPhotoURISuccess, PictureUpload.onFail, { quality: 50, destinationType: destinationType.DATA_URL });
+			navigator.camera.getPicture(PictureUpload.onPhotoURISuccess, PictureUpload.onFail, { quality: 50, destinationType: destinationType.FILE_URI });
 		},
 		selectPic : function() {
-			navigator.camera.getPicture(PictureUpload.onPhotoURISuccess, PictureUpload.onFail, { quality: 50,  destinationType: destinationType.DATA_URL, sourceType: pictureSource.PHOTOLIBRARY });
+			// navigator.camera.getPicture(PictureUpload.onPhotoURISuccess, PictureUpload.onFail, { quality: 50,  destinationType: destinationType.DATA_URL, sourceType: pictureSource.PHOTOLIBRARY });
+			navigator.camera.getPicture(PictureUpload.onPhotoURISuccess, PictureUpload.onFail, { quality: 50,  destinationType: destinationType.FILE_URI, sourceType: pictureSource.PHOTOLIBRARY });
 		},
 		onPhotoURISuccess: function (imageURI) {  
 			window.location.hash="#upload";
     		var photoDiv = $('#photoDiv');  
-			//$("#photoPath").val(imageURI);
-			$("#photoImg").attr('src', 'data:image/jpeg;base64,' + imageURI);
+			$("#photoPath").val(imageURI);
+			//$("#photoImg").attr('src', 'data:image/jpeg;base64,' + imageURI);
+    		$("#photoImg").attr('src', imageURI);
 			alert(imageURI);
 			if (UploadImgObj.imgSelectedCallback) {
 				UploadImgObj.imgSelectedCallback();

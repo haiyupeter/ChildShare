@@ -31,7 +31,7 @@
 			<div class="pub-menus">
 		        <div class="pub-menus-main">
 		          <span class="pub-menus-other">
-		            <a class="ico-photo" href="#"><!--ico-photo--></a>        
+		            <a class="ico-photo" href="#photo" onclick="window.location.hash='#photo';"><!--ico-photo--></a>        
 		            <a class="ico-talk" href="#"><!--ico-talk--></a>
 		            <a class="ico-mic" href="#"><!--ico-mic--></a>
 		          </span>
@@ -74,13 +74,53 @@
 			<div id="list" class="shareList"></div>
 		</div>
 	</div>-->
-	
+	<!-- 
 	<div data-role="footer" data-theme="b" data-position="fixed">
 		<div data-role="navbar">
 
 		</div>
 	</div>
+	 -->
 </div>
+
+<!-- 照片开始 -->
+<div data-role="dialog" id="photo">
+	<div data-role="header" data-theme="b">
+		<h1>请选择</h1>
+	</div>
+	<div data-role="content" data-theme="b">
+		<a href="#" data-role="button" data-rel="dialog" data-transition="slidedown" data-theme="b" onclick="PictureUpload.capturePhoto();">照相</a>
+		<a href="#" data-role="button" data-rel="dialog" data-transition="slidedown" data-theme="b" onclick="PictureUpload.selectPic();">图片</a> 
+	</div>
+</div>
+<div data-role="page" id="upload">
+	<div data-role="header" data-theme="b" data-position="fixed">
+		<h1>上传照片</h1>
+	</div>
+
+	<div data-role="content" data-theme="b">	
+		<div id="photoDiv">
+			<input id="photoPath" type="text" id="photo" value=""></input><br/>
+			<img id="photoImg" src="" width="100%;" height="300px;"></img><br/>
+			<textarea name="textarea" id="description" ows=3></textarea><br/>
+			<a href="#" data-role="button" onclick="uploadPhoto()">上传</a>		
+		</div>
+	</div>
+	<!-- 
+	<div data-role="footer" data-theme="b" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#main" onclick="showList();">首页</a></li>
+				<li><a href="#hot" onclick="showHotImages();">热门</a></li>
+				<li><a href="#photo" class="ui-btn-active">拍照</a></li>
+				<li><a href="#personal">个人</a></li>
+			</ul>
+		</div>
+	</div>
+	 -->
+</div>
+<!-- 照片结束 -->
+
 </body>
 <script type="text/javascript" src="../js/constants.js"></script>
 <script type="text/javascript" src="../js/cordova-1.7.0rc1.js"></script>
