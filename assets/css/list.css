@@ -27,7 +27,7 @@
 	width: 270px;
 	border: 1px solid #E6E4E1;
 	border-radius: 15px;
-	margin-left: 20px;
+	margin-left: 10px;
 	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
 }
 .shareList li:first-child {
@@ -77,3 +77,35 @@
 	vertical-align: middle;
 	margin: 0 8px 0 2px;
 }
+
+.tml_spine .spine_plus {
+        	top: 0;
+			left: 0;
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			background-image: url(images/gray.png);
+			/*background-position: -203px -45px;*/
+        }
+        
+        .tml_spine .spine_date {
+        	position: absolute;
+        	top: 16px;
+        	width: 75px;
+			height: 25px;
+        }
+        
+        .tml_spine .spine_current {
+        	background-image: url(images/green.png);
+        }
+        
+        .tml_spine_bg {
+			display: block;
+			/*margin-left: 6px;*/
+			margin-top: 6px;
+			width: 100%;
+			height: 3px;
+			background-color:white;
+			opacity: .5;
+			filter: Alpha(opacity=50);
+		}
