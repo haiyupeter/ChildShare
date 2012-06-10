@@ -76,7 +76,9 @@ var getUserInfo = function (result) {
 		CookieUtil.set('username', name);
 		$("#main h1").html(name + " - 亲子卷轴");
 		window.location.hash="#main";
-		showList();
+		//setTimeout(showList, 1000);
+		//console.log('aa');
+		// showList();
 	}
 }
 
