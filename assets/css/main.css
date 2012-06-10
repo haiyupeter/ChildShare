@@ -10,7 +10,7 @@
 
 .ui-btn-top-feeds {height:57px;width:73px;background-image: url(./images/header-btn-feeds.png);}
 
-.ui-content-info-bg {height:260px;background-image: url(./images/info-bg.png);}
+.ui-content-info-bg {height:260px;background-repeat: no-repeat;background-image: url(./images/info-bg.png);}
 
 .ui-btn-info-profile {background-repeat: no-repeat;top:210px;left:80px;background-image: url(./images/profile.png);}
 
