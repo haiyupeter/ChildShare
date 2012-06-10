@@ -38,7 +38,28 @@
  
 var E4M = (function(){  
     var G_ANIMATION_MAP = null;   // Animation实例MAP
+    var G_TOUCH_MAP = null;       // TouchSlide实例MAP
     //----------------------------------------------------------------
+    /**
+     * 获取TouchSlide实例
+     * @param String name 实例名称
+     * @param Boolean create 在不存在时是否创建新的一个新的实例
+     * @return TouchSlide slide 
+     */
+    function GetTouchSlide(name, create){
+        var instance = null;
+        G_TOUCH_MAP = G_TOUCH_MAP || {};
+        if(true === create){            
+            if(!G_TOUCH_MAP[name]){
+                instance = G_TOUCH_MAP[name] = new _TouchSlide(name);                     
+            }else{
+                instance = G_TOUCH_MAP[name];
+            }
+        }else{
+            instance = (G_TOUCH_MAP[name] || null);
+        }
+        return instance;
+    };
     /**
      * 获取Animation实例
      * @param String name 实例名称
@@ -451,6 +472,171 @@ var E4M = (function(){
     }; // end _Animation
     
     //----------------------------------------------------------------
+    /**
+     * 触摸幻灯片（构造函数）
+     * @param String name
+     */
+    var _TouchSlide = function(name){
+        this.name = name;       //名称，唯一标识
+        this.fingerStartX = 0;  //手指X轴开始位置
+        this.fingerStartY = 0;  //手指Y轴开始位置
+        this.currentPoint = 0;  //当前位置点
+        this.right = true;      //右滑动
+        this.left = false;      //左滑动
+        this.up = false;        //上滑动
+        this.down = false;      //下滑动
+    };
+    //方法
+    _TouchSlide.prototype = {   
+        /**
+         * touchstart事件监听回调函数
+         * @param Event e
+         */
+        touchStartHandler : function(e){
+            e.preventDefault();
+            
+            var slide = GetTouchSlide(this.getAttribute("data-touch")); 
+            var property = this.getAttribute("data-style") || "marginLeft";
+            var touch = e.targetTouches[0];
+            slide.fingerStartX = touch.pageX;
+            slide.fingerStartY = touch.pageY;
+            
+            //当前层的位置
+            slide.currentPoint = parseInt(this.style[property] || 0, 10);
+            //touch move
+            this.addEventListener("touchmove", slide.touchMoveHandler, false);    
+            this.addEventListener("touchend", slide.touchEndHandler, false);
+        },
+        /**
+         * touchmove事件监听回调函数
+         * @param Event e
+         */
+        touchMoveHandler : function(e){
+            var slide = GetTouchSlide(this.getAttribute("data-touch"));
+            var selector = this.getAttribute("data-selector");
+            var vertical = ("1" == this.getAttribute("data-dir"));
+            var touch = e.targetTouches[0];
+            var fingerX = touch.pageX;
+            var fingerY = touch.pageY;
+            var fingerStartX = slide.fingerStartX;
+            var fingerStartY = slide.fingerStartY;
+            
+            var offset = vertical ? (fingerY - fingerStartY) : (fingerX - fingerStartX);
+
+            offset = slide.currentPoint + offset;
+            if(vertical){
+                slide.left = !(slide.right = (fingerX > fingerStartX));
+                slide.up = slide.down = false;
+            }else{
+                slide.up = !(slide.down = (fingerY > fingerStartY));
+                slide.left = slide.right = false;
+            }
+            /*
+            if(fingerX > fingerStartX){ //turn right            
+                offset = Math.min(offset, 0);
+            }else{ //turn left
+                offset = Math.max(offset, -400);
+            }*/
+            
+            slide.turnScreen(selector, offset, property);
+        },
+        /**
+         * touchend事件监听回调函数
+         * @param Event e
+         */
+        touchEndHandler : function(e){
+            var slide = GetTouchSlide(this.getAttribute("data-touch"));
+            var selector = this.getAttribute("data-selector");
+            var vertical = ("1" == this.getAttribute("data-dir"));
+            var property = this.getAttribute("data-style") || "marginLeft";
+            var size = parseInt(this.getAttribute("data-size") || 200, 10);
+            var page = parseInt(this.getAttribute("data-page") || 1, 10);
+            var left = parseInt(this.style[property] || 0, 10);
+            var half = Math.round(size / 2);
+            var max = size * (page - 1);
+            var endPoint = Math.abs(left);
+            var mod = Math.abs(endPoint % size);
+            var offset = 0;
+            
+            if(vertical){
+                if(slide.down){ //turn down
+                    offset = 0;
+                    if(left <= 0){
+                        if(mod <= half){ //达到右移标准
+                            offset = endPoint - mod;
+                        }else{
+                            offset = endPoint + (size - mod);
+                        }
+                        offset = Math.min(-offset, 0); 
+                    }        
+                }else{ //turn left        
+                    if(mod >= half){ //达到左移标准
+                        offset = endPoint + (size - mod);
+                    }else{
+                        offset = endPoint - mod;
+                    }
+                    offset = Math.max(-offset, -max);
+                }
+            }else{
+                if(slide.right){ //turn right
+                    offset = 0;
+                    if(left <= 0){
+                        if(mod <= half){ //达到右移标准
+                            offset = endPoint - mod;
+                        }else{
+                            offset = endPoint + (size - mod);
+                        }
+                        offset = Math.min(-offset, 0); 
+                    }        
+                }else{ //turn left        
+                    if(mod >= half){ //达到左移标准
+                        offset = endPoint + (size - mod);
+                    }else{
+                        offset = endPoint - mod;
+                    }
+                    offset = Math.max(-offset, -max);
+                }
+            }
+            
+            //AddClass(this, "move");
+            slide.turnScreen(selector, offset, property);
+            
+            //移除监听事件
+            this.removeEventListener("touchmove", slide.touchMoveHandler, false);
+            this.removeEventListener("touchend", slide.touchEndHandler, false);
+        },
+        /**
+         * 翻屏
+         * @param String selector 选择器
+         * @param Number _offset 偏移值
+         * @param String property CSS属性名
+         */
+        turnScreen : function(selector, _offset, property){
+            var _slide = document.querySelector(selector);
+            _slide.style[property] = _offset+'px';
+            _slide = null;
+        },
+        /**
+         * 绑定
+         * <div data-style="marginLeft" data-dir="0" data-size="200" data-page="3"></div>
+         * @param String selector 选择器
+         */
+        bind : function(selector){
+            var o = document.querySelector(selector);
+            if(null != o){
+                o.setAttribute("data-touch", this.name);
+                o.setAttribute("data-selector", selector);
+                o.addEventListener("touchstart", this.touchStartHandler, false);
+            }
+        },
+        /**
+         * 销毁对象
+         */
+        destory : function(){
+            G_TOUCH_MAP[this.name] = null;
+        }
+    }; //end _TouchSlide
+    //----------------------------------------------------------------
     (function main(){
         var animation = GetAnimation("common_animation_bind", true);
         animation.bind(".js-bind-animtions", true);
@@ -528,6 +714,35 @@ var E4M = (function(){
                     /**
                      * 销毁Sine实例
                      * @see _Animation.destory()
+                     */
+                    "destory" : function(){instance.destory();}
+                };
+            }
+        },
+        //------------------------------------------------------------------------------
+        /**
+         * 获取TouchSlide实例
+         * @param String name 唯一标识
+         * @return Object
+         */
+        "getTouchSlide" : function(name){
+            var instance = null;
+            
+            if(!name || typeof(name) != "string"){
+                throw new Error("Illegal parameter! E4M.getTouchSlide(name)::name = " + name);
+            }else{
+                instance = GetTouchSlide(name, true);
+                
+                //方法注册
+                return {
+                    /**
+                     * 绑定 
+                     * @see _TouchSlide.bind(selector, vertial)
+                     */
+                    "bind" : function(selector, vertial){instance.bind(selector, vertial);},
+                    /**
+                     * 销毁TouchSlide实例
+                     * @see _TouchSlide.destory()
                      */
                     "destory" : function(){instance.destory();}
                 };

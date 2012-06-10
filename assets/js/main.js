@@ -106,4 +106,13 @@ var onDeviceReady = function() {
 	    }, false);  
 	}
 	
-})();
+})("pub-menus");
+
+(function(){
+    var o = document.querySelector("login bg");
+    
+    if(null != o){
+        var slide = E4M.getTouchSlide("login");
+        slide.bind("login bg");
+    }
+})("login");
