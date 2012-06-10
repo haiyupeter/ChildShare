@@ -53,6 +53,10 @@
   position:relative;
 }
 
+.ease-up{
+  -webkit-transition:top 1s ease 2s;
+}
+
 .push-menus{
   -webkit-transition:width 0.2s ease, right 0.2s ease;
 }
