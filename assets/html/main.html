@@ -94,13 +94,21 @@
 	</div>
 </div>
 <div data-role="page" id="upload">
+
+	<div data-role="header" data-theme="b" class="ui-bar-bg">
+		<a href="#" onclick="window.location.hash='#photo';" class="ui-btn-top-more" style="top:5px;"></a>
+		<h1 style="font-size:18px;">上传照片</h1>
+		<a href="#" onclick="window.location.hash='#main';"  class="ui-btn-top-feeds" style="top:5px;"></a>
+	</div>
+	<!-- 
 	<div data-role="header" data-theme="b" data-position="fixed">
 		<h1>上传照片</h1>
 	</div>
+	 -->
 
 	<div data-role="content" data-theme="b">	
 		<div id="photoDiv">
-			<input id="photoPath" type="text" id="photo" value=""></input><br/>
+			<input id="photoPath" type="text" id="photo" value="" style="display:none;"></input><br/>
 			<img id="photoImg" src="" width="100%;" height="300px;"></img><br/>
 			<textarea name="textarea" id="description" ows=3></textarea><br/>
 			<a href="#" data-role="button" onclick="uploadPhoto()">上传</a>		

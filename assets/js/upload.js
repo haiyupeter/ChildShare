@@ -31,7 +31,6 @@ var PictureUpload = {
 			$("#photoPath").val(imageURI);
 			//$("#photoImg").attr('src', 'data:image/jpeg;base64,' + imageURI);
     		$("#photoImg").attr('src', imageURI);
-			alert(imageURI);
 			if (UploadImgObj.imgSelectedCallback) {
 				UploadImgObj.imgSelectedCallback();
 			}
