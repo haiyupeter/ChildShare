@@ -27,7 +27,7 @@ function getPhotos(result) {
 	}
 	var t = '\
 		<li>\
-			<img src="{img}"/>\
+			<img src="{img}" />\
 			<div class="img-info">\
 				<span class="img-title">{title}</span>\
 				<span class="img-comment">\
@@ -59,7 +59,7 @@ var showList = function() {
 	var userId = CookieUtil.get("userid");
 	// 展现
 	ChildObj.getPhotoList(userId);// $.getJSON('../data.json', function(d) {console.log(d)
-	//getPhotos({'ret':'0', 'msg':'load success', 'data':[{'description':'出生了', 'path':'../img/591.jpg', 'comment':'10'},{'description':'很开心', 'path':'../img/588.jpg', 'comment':'10'},{'description':'今天小孩会坐起来玩玩具了', 'path':'../img/593.jpg', 'comment':'100'},{'description':'某一天，你也会很可爱，你是妈妈的幸福', 'path':'../img/595.jpg', 'comment':'5'},{'description':'开心开心', 'path':'../img/592.jpg', 'comment':'1200'},{'description':'开心了', 'path':'../img/599.jpg', 'comment':'15'}]});
+	//getPhotos({'ret':'0', 'msg':'load success', 'data':[{'description':'出生了', 'path':'../img/591.jpg', 'upload_time':'2012-06-09 14:13:23.0','comment':'10'},{'description':'很开心', 'path':'../img/588.jpg', 'upload_time':'2012-06-09 14:13:23.0', 'comment':'10'},{'description':'今天小孩会坐起来玩玩具了', 'path':'../img/593.jpg', 'comment':'100', 'upload_time':'2012-06-09 14:13:23.0'},{'description':'某一天，你也会很可爱，你是妈妈的幸福', 'path':'../img/595.jpg', 'comment':'5', 'upload_time':'2012-06-09 14:13:23.0'},{'description':'开心开心', 'path':'../img/592.jpg', 'comment':'1200', 'upload_time':'2012-06-09 14:13:23.0'},{'description':'开心了', 'path':'../img/599.jpg', 'comment':'15', 'upload_time':'2012-06-09 14:13:23.0'}]});
 	/*
 	var userId = CookieUtil.get("userid");
 	$.getScript(webContext + "/ImageServlet?cmd=query&userId=" + userId).error(function(){
@@ -74,7 +74,7 @@ var scrollTimeBar = function(iscroll, e) {
 	$('#list_scroll').css('margin-left', x);
 };
 
-Date.prototype.pattern=function(fmt) {        
+Date.prototype.pattern=function(fmt) { 
     var o = {        
     "M+" : this.getMonth()+1, //月份        
     "d+" : this.getDate(), //日        
@@ -86,13 +86,13 @@ Date.prototype.pattern=function(fmt) {
     "S" : this.getMilliseconds() //毫秒        
     };        
     var week = {        
-    "0" : "\u65e5",        
-    "1" : "\u4e00",        
-    "2" : "\u4e8c",        
-    "3" : "\u4e09",        
-    "4" : "\u56db",        
-    "5" : "\u4e94",        
-    "6" : "\u516d"       
+    "0" : "\u65e5",
+    "1" : "\u4e00",
+    "2" : "\u4e8c",
+    "3" : "\u4e09",
+    "4" : "\u56db",
+    "5" : "\u4e94",
+    "6" : "\u516d"
     };        
     if(/(y+)/.test(fmt)){        
         fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));        
@@ -108,20 +108,21 @@ Date.prototype.pattern=function(fmt) {
     return fmt;        
 }      
 
-
-var item_length = 280;
+var item_length = 0;
 
 function initScrollBar() {
+	item_length = $('#list li:last').outerWidth();
+	var ml = parseInt($('#list li:last').css('margin-left'), 10);
 	var data = listData;
 	var length = data.length;
 	// set width
-	$('.shareList').css('width', (item_length + 10) * length);
+	$('#list').css('width', (item_length + ml) * length - ml);
 	$('#list_scroll').css('width', item_length * length);
 	$('#time_line').css('width', item_length * length);
 	// init the scrollIcon
 	var item_list = [];
 	for (var i = 0; i < data.length; i ++) {
-		left = i * item_length + 20;
+		left = i * item_length + 10;
 		//item_list.push('<i id="add_event_plus_' + data[i].id + '" class="spine_plus" style="left:' + left + 'px;"></i>');
 		item_list.push('<i class="spine_plus" style="left:' + left + 'px;"></i>');
 		var upload_time = new Date(data[i].upload_time).pattern("MM月dd日");
@@ -138,7 +139,7 @@ function initScrollBar() {
 	}).bind('click', function(e){
 		return false;
 	});
-}
+};
 
 /*
 function scrollCallback(x, y, data) {
