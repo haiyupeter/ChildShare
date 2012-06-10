@@ -113,9 +113,17 @@ var onDeviceReady = function() {
 
     if(null != o){
         var login = E4M.getAnimation("login");
+        login.set("start", function(node, newClassName, styles){
+            var bg = document.querySelector(".login.bg");
+            var top = parseInt(document.defaultView.getComputedStyle(bg, null).top||-1, 10);
+
+            if(0 === top){
+                E4M.addClass(".login.form-panel", "on");
+            }
+        });
         login.set("stop", function(node, newClassName, styles){
             E4M.addClass(".login.form-panel", "on");
-        });      
+        });
         login.transition(".login.bg", "ease-up", {top:0});
     }
 })("login");
