@@ -125,7 +125,11 @@ function initScrollBar() {
 		left = i * item_length + 10;
 		//item_list.push('<i id="add_event_plus_' + data[i].id + '" class="spine_plus" style="left:' + left + 'px;"></i>');
 		item_list.push('<i class="spine_plus" style="left:' + left + 'px;"></i>');
-		var upload_time = new Date(data[i].upload_time).pattern("MM月dd日");
+		// TODO:
+		var upload_time = "";
+		if (data[i].upload_time) {
+			upload_time = data[i].upload_time.substring(5, 10);
+		}
 		item_list.push('<div class="spine_date" style="left:' + (left-15) + 'px; top:16px;">' + upload_time + '</div>');
 		
 	}
