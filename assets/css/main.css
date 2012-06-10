@@ -131,3 +131,20 @@
 .pub-menus2 .ico-talk{display:block; margin-top:17px; margin-left:36px; width:38px; height:35px; background:url(./images/ico-talk.png) no-repeat 0 0;}
 .pub-menus2 .ico-mic{display:block; margin-top:17px; margin-left:36px; width:38px; height:35px; background:url(./images/ico-mic.png) no-repeat 0 0;}
  
+ .flash{width:320px; height:460px; overflow:hidden;}
+.login{position:absolute; width:320px; left:0;top:0;}
+.login.child{width:100%; height:230px; background:url(./images/flash.png) no-repeat 0 0;}
+.login.bg{top:174px; width:100%; height:460px;; background:url(./images/bg.png) no-repeat 0 0;}
+.login.form{left:52px; top:166px; width:212px; height:62px;  background:url(./images/input.png) no-repeat 0 0;}
+.login.form form{opacity:0;}
+.login.form form.on{
+  opacity:1;
+  -webkit-transition:opacity 0.5s ease;
+}
+.login.form label{font-family:"Microsoft YaHei"; padding-left:8px; color:gray}
+.login.form ::-webkit-input-placeholder {
+    color:#DDD;
+}
+.login.form input{font-family:"Microsoft YaHei"; display:inline; border:none; background:none; width:150px; height:18px;-webkit-box-shadow:none; box-shadow:none;}
+.login.form div a{position:relative; left:24px; font-size:1.5em; text-decoration:none; color:#666; font-family:"Microsoft YaHei";}
+.login.btn-line{top:232px; }
