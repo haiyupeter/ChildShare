@@ -47,7 +47,11 @@ function getPhotos(result) {
 	}
 	
 	$("#list").html(listHtml.join(''));
-	
+	setTimeout(function(){
+        if (window.myScroll) {
+        window.myScroll.refresh();
+        }
+    },0);
 	// 初始化时间轴
 	initScrollBar();
 };
