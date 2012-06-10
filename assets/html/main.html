@@ -17,7 +17,24 @@
 </style>
 </head>
 <body >
-
+<!---------------------------------login begin---------------------------------->
+<div data-role="page" id="login">
+  <div class="flash">
+    <div class="login child"></div>
+    <div class="login bg" data-style="top" data-dir="1" data-size="460" data-page="1">
+      <form class="on">
+        <div class="login form">
+          <div><label>账号</label><input id="id_login" name="user" type="text" placeholder="请输入账号..."></div>
+          <div><label>密码</label><input id="password_login" name="password" type="password" placeholder="请输入密码..."><a href="#">?</a></div>
+        </div>
+        <div class="login btn-line">
+          <button type="button" onclick="login()">登录</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!---------------------------------login end------------------------------------>
 <div data-role="page" id="main" class="ui-page ui-body-b ui-page-active">
 	<div data-role="header" data-theme="b" class="ui-bar-bg">
 		<a href="#more" class="ui-btn-top-more" data-transition="slide" style="top:5px;"></a>
