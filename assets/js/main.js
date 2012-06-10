@@ -3,7 +3,7 @@
 function init() {
 	// 若用户已登录，默认页面，展现列表
 	// TODO: 后续将其隐藏起来
-	showList();
+	//showList();
 	document.addEventListener("deviceready", onDeviceReady, true);
 	
 	var myScroll = new iScroll('wrapper', {
@@ -109,10 +109,13 @@ var onDeviceReady = function() {
 })("pub-menus");
 
 (function(){
-    var o = document.querySelector("login bg");
-    
+    var o = document.querySelector(".login.bg");
+
     if(null != o){
-        var slide = E4M.getTouchSlide("login");
-        slide.bind("login bg");
+        var login = E4M.getAnimation("login");
+        login.set("stop", function(node, newClassName, styles){
+            E4M.addClass(".login.form-panel", "on");
+        });      
+        login.transition(".login.bg", "ease-up", {top:0});
     }
 })("login");
