@@ -3,16 +3,16 @@
 *create time: 2012-06-09
 **/
 
-.ui-bar-bg {height:90px;background-image: url(./images/header-bg.png);}
+.ui-bar-bg {height:45px;background-image: url(./images/header-bg.png);}
 
-.ui-btn-top-more {height:57px;width:73px;background-image: url(./images/header-btn-more.png);}
+.ui-btn-top-more {height:29px;width:37px;background-image: url(./images/header-btn-more.png);}
 
 
-.ui-btn-top-feeds {height:57px;width:73px;background-image: url(./images/header-btn-feeds.png);}
+.ui-btn-top-feeds {height:29px;width:37px;background-image: url(./images/header-btn-feeds.png);}
 
-.ui-content-info-bg {height:260px;background-repeat: no-repeat;background-image: url(./images/info-bg.png);}
+.ui-content-info-bg {height:130px;background-repeat: no-repeat;background-image: url(./images/info-bg.png);}
 
-.ui-btn-info-profile {background-repeat: no-repeat;top:210px;left:80px;background-image: url(./images/profile.png);}
+.ui-btn-info-profile {background-repeat: no-repeat;background-image: url(./images/profile.png);}
 
 .ui-btn-info-publish {background-repeat: no-repeat;background-image: url(./images/publish.png);}
 
@@ -54,9 +54,9 @@
    border-radius: 2em;
 }*/
 .ui-btn-info-publish-cycle {
-   -moz-border-radius: 1em;
-   -webkit-border-radius: 1em;
-   border-radius: 1em;
+   -moz-border-radius: 2em;
+   -webkit-border-radius: 2em;
+   border-radius: 2em;
 }
 
 .pub-menus{  
