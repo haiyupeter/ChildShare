@@ -46,7 +46,7 @@ function getPhotos(result) {
 		}));
 	}
 	
-	$("#list").append(listHtml.join(''));
+	$("#list").html(listHtml.join(''));
 	
 	// 初始化时间轴
 	initScrollBar();
