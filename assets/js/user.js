@@ -79,6 +79,7 @@ var getUserInfo = function (result) {
 		//setTimeout(showList, 1000);
 		//console.log('aa');
 		// showList();
+		
 	}
 }
 
