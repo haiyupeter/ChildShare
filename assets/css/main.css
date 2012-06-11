@@ -32,6 +32,8 @@
 
 .ui-content-more-bg {background-repeat: no-repeat;background-image: url(./images/more-content1.png);}
 
+.ui-content-feeds-bg {background-repeat: no-repeat;background-image: url(./images/feeds-content.png);}
+
 .ui-btn-info-publish {background-repeat: no-repeat;background-image: url(./images/publish.png);}
 
 /*.ui-btn-info-publish-cycle{
