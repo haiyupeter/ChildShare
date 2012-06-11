@@ -16,13 +16,13 @@
 	#hot div.first, #hot .item img.first { width:180px;height:180px; }
 </style>
 </head>
-<body>
+<body >
 
-<div data-role="page" id="main" style="">
+<div data-role="page" id="main" class="ui-page ui-body-b ui-page-active">
 	<div data-role="header" data-theme="b" class="ui-bar-bg">
-		<a href="more.html" class="ui-btn-top-more" style="top:5px;"></a>
+		<a href="#more" class="ui-btn-top-more" data-transition="slide" style="top:5px;"></a>
 		<h1 style="font-size:18px;">宝宝帮</h1>
-		<a href="feeds.html" class="ui-btn-top-feeds" style="top:5px;"></a>
+		<a href="#feeds" class="ui-btn-top-feeds" data-transition="slide"  data-back="true" style="top:5px;"></a>
 	</div>
 
 	<div data-role="content" data-theme="a" style="padding:0px;">
@@ -81,6 +81,26 @@
 		</div>
 	</div>
 	 -->
+</div>
+
+<div data-role="page" id="more">
+	<div data-role="header" data-theme="b" class="ui-bar-bg">
+		<h1 style="font-size:18px;">更多</h1>
+		<a href="main.html" class="ui-btn-top-back ui-btn-right" data-transition="slide" data-back="true" style="top:5px;"></a>
+	</div>
+	<div data-role="content" data-theme="b">
+		
+	</div>
+</div>
+
+<div data-role="page" id="feeds">
+	<div data-role="header" data-theme="b" class="ui-bar-bg">
+		<a href="main.html" class="ui-btn-top-back" data-transition="slide" style="top:5px;"></a>
+		<h1 style="font-size:18px;">好友宝宝</h1>
+	</div>
+	<div data-role="content" data-theme="b">
+		
+	</div>
 </div>
 
 <!-- 照片开始 -->

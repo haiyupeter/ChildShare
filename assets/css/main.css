@@ -11,6 +11,12 @@
    border-radius: 0.5em;
 }
 
+.ui-btn-top-back {height:28px;width:37px;background-image: url(./images/header-btn-back.png);
+   -moz-border-radius: 0.5em;
+   -webkit-border-radius: 0.5em;
+   border-radius: 0.5em;
+}
+
 
 .ui-btn-top-feeds {height:28px;width:37px;background-image: url(./images/header-btn-feeds.png);
    -moz-border-radius: 0.5em;
